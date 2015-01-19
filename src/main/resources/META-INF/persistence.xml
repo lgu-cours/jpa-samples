@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="jpa-tests" transaction-type="RESOURCE_LOCAL">
+	
+	<!-- JPA Provider for Eclipse Link  -->
+	<!-- 
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+	 -->
+     
+	<!-- JPA Provider for Oracle Top Link  -->
+	<!-- 
+    <provider>oracle.toplink.essentials.PersistenceProvider</provider>
+	 -->
+    
+	<!-- JPA Provider for Hibernate 3 -->
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+	<!-- 
+	 -->
+    
+
+	<class>org.demo.entities.Badge</class>
+	<class>org.demo.entities.Company</class>
+	<class>org.demo.entities.Author</class>
+	<class>org.demo.primarykey.ReviewPK</class>
+<!-- <class>org.demo.queries.BadgeQueries</class> -->	
+	
+ 
+    <properties>
+		<!-- JDBC driver for Derby --> 
+		<!-- 
+		<property name="javax.persistence.jdbc.driver"   value="org.apache.derby.jdbc.ClientDriver"/> 
+		-->
+
+		<!-- JDBC driver for P6Spy ( JDBC proxy ) --> 
+		<!-- 
+		<property name="javax.persistence.jdbc.driver"   value="com.p6spy.engine.spy.P6SpyDriver"/> 
+		-->
+
+		<!-- JDBC driver for Log4JDBC ( JDBC proxy ) --> 
+		<!-- 
+		-->
+		<property name="javax.persistence.jdbc.driver"   value="net.sf.log4jdbc.DriverSpy"/> 
+
+
+		<!-- JDBC Connection --> 
+		<property name="javax.persistence.jdbc.url"      value="jdbc:log4jdbc:derby://localhost:1527/bookstore"/> 
+		<property name="javax.persistence.jdbc.user"     value="root"/> 
+		<property name="javax.persistence.jdbc.password" value="admin"/> 
+      
+      
+		<!-- Hibernate SQL trace -->
+		<!-- 
+		<property name="hibernate.show_sql" value="true"/>
+		<property name="hibernate.format_sql" value="true"/>  
+		<property name="hibernate.use_sql_comments" value="true"/>  
+		 -->
+		
+		<!-- Eclipse Link SQL trace -->
+		<!-- 
+		<property name="eclipselink.logging.level" value="FINE"/>
+		 -->
+		
+    </properties> 
+    
+  </persistence-unit>
+  
+</persistence>
