@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.demo.Helper;
 import org.demo.entities.Badge;
@@ -39,7 +40,8 @@ public class RequestJPQL {
 		final String QUERY = "SELECT b.badgeNumber FROM Badge b " ;
 		
 		System.out.println("create query ...");
-		Query query = em.createQuery( QUERY ) ;
+		//Query query = em.createQuery( QUERY ) ;
+		TypedQuery<Integer> query = em.createQuery( QUERY,Integer.class ) ;
 		
 		//--- Execute query
 		System.out.println("execute query ...");
@@ -57,7 +59,8 @@ public class RequestJPQL {
 		final String QUERY = "SELECT b FROM Badge b " ;
 		
 		System.out.println("create query ...");
-		Query query = em.createQuery( QUERY ) ;
+		//Query query = em.createQuery( QUERY ) ;
+		TypedQuery<Badge> query = em.createQuery( QUERY, Badge.class ) ;
 		
 		//--- Execute query
 		System.out.println("execute query ...");
@@ -75,7 +78,8 @@ public class RequestJPQL {
 		final String QUERY = "SELECT b FROM Badge b WHERE b.badgeNumber >= :min AND b.badgeNumber <= :max  " ;
 		
 		System.out.println("create query ...");
-		Query query = em.createQuery( QUERY ) ;
+		//Query query = em.createQuery( QUERY ) ;
+		TypedQuery<Badge> query = em.createQuery( QUERY, Badge.class ) ;
 		
 		System.out.println("set parameters ...");
 		query.setParameter("min", 100);
@@ -97,7 +101,8 @@ public class RequestJPQL {
 		final String QUERY = "SELECT b FROM Badge b WHERE b.badgeNumber >= ?11 AND b.badgeNumber <= ?12  " ;
 		
 		System.out.println("create query ...");
-		Query query = em.createQuery( QUERY ) ;
+		//Query query = em.createQuery( QUERY ) ;
+		TypedQuery<Badge> query = em.createQuery( QUERY, Badge.class ) ;
 		
 		System.out.println("set parameters ...");
 		query.setParameter(11, 302);
