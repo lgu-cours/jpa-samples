@@ -13,7 +13,7 @@ public class Author implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	private long id;
 
 	@Column(name="FIRST_NAME")
 	private String firstName;
@@ -24,7 +24,7 @@ public class Author implements Serializable {
     public Author() {
     }
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
